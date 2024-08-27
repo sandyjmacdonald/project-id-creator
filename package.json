@@ -1,0 +1,16 @@
+{
+  "name": "project-id-creator",
+  "version": "1.0.0",
+  "scripts": {
+    "build:css": "bunx tailwindcss -i ./src/styles/tailwind.css -o ./public/tailwind.css --minify",
+    "build": "bun build src/index.tsx --outfile=dist/index.js",
+    "dev": "bun run build:css && bun src/index.tsx",
+    "deploy": "bun run build && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0",
+    "typescript": "^5.0.0",
+    "hono": "^2.0.0",
+    "@cloudflare/workers-types": "^4.20240529.0"
+  }
+}

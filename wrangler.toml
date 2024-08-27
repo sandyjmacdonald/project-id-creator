@@ -1,0 +1,10 @@
+name = "project-id-creator"
+type = "javascript"
+main = "dist/index.js"
+compatibility_date = "2024-08-19"
+
+[build]
+command = "bun run build:css && bun run build"
+
+[site]
+bucket = "./public"
