@@ -8,3 +8,6 @@ command = "bun run build:css && bun run build"
 
 [site]
 bucket = "./public"
+
+[placement]
+mode = "smart"
