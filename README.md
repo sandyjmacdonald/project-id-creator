@@ -65,4 +65,6 @@ curl -s https://project-id-creator.sandyjmacdonald.workers.dev/api/v1/project-id
 {"project_id":"P2024-CRD-VTZB"}
 ```
 
-A `400` response will be returned if the user ID provided is not valid. A valid user ID is either three letters, or two letters followed by an integer number from 1 to 9.
+A `400` response will be returned if the user ID provided is not valid.
+
+A valid user ID is either three letters, or two letters followed by an integer number from 1 to 9.
