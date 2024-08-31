@@ -55,7 +55,7 @@ curl -s https://project-id-creator.sandyjmacdonald.workers.dev/api/v1/suffix
 {"suffix":"ADQX"}
 ```
 
-### `/api/v1/project-id/`
+### `/api/v1/project-id/{UID}`
 
 To generate a project ID, use the `/api/v1/project-id/` route and append a valid three-character user ID:
 
