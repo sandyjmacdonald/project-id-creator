@@ -13,10 +13,15 @@ function getSuffix () {
   return suffix;
 }
 
-// Serve the main page
-app.get('/', (c) => {
+function getPrefix () {
   const thisYear = new Date().getFullYear();
   const prefix = "P" + thisYear;
+  return prefix;
+}
+
+// Serve the main page
+app.get('/', (c) => {
+  const prefix = getPrefix();
   const startSuffix = getSuffix();
   return c.html(`
     <!DOCTYPE html>
@@ -133,6 +138,37 @@ app.get('/', (c) => {
     </body>
     </html>
   `);
+});
+
+// API routes
+app.get("/project-id/:userID", async (c) => {
+  const userID = c.req.param("userID");
+  try {
+    const prefix = getPrefix();
+    const suffix = getSuffix();
+    const projectID = `${prefix}-${userID}-${suffix}`
+    return c.json({"project_id": projectID});
+  } catch (error) {
+    return c.json({ error: 'Something went wrong', details: error.message }, 500)
+  }
+});
+
+app.get("/prefix", async (c) => {
+  try {
+    const prefix = getPrefix();
+    return c.json({"prefix": prefix});
+  } catch (error) {
+    return c.json({ error: 'Something went wrong', details: error.message }, 500)
+  }
+});
+
+app.get("/suffix", async (c) => {
+  try {
+    const suffix = getSuffix();
+    return c.json({"suffix": suffix});
+  } catch (error) {
+    return c.json({ error: 'Something went wrong', details: error.message }, 500)
+  }
 });
 
 export default app;
