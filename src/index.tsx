@@ -48,7 +48,7 @@ app.get('/', (c) => {
                 id="initials" 
                 type="text" 
                 class="bg-white text-black text-center text-lg font-bold antialiased py-2 rounded-full outline-none ring-0 focus:ring focus:ring-green-600 focus:outline-none" 
-                pattern="([A-Za-z]{3}|[A-Za-z]{2}[0-9])"
+                pattern="([A-Za-z]{3}|[A-Za-z]{2}[1-9])"
                 maxlength="3" 
                 required 
                 data-1p-ignore 
@@ -141,32 +141,41 @@ app.get('/', (c) => {
 });
 
 // API routes
-app.get("/project-id/:userID", async (c) => {
-  const userID = c.req.param("userID");
+app.get("/api/v1/project-id/:userID", async (c) => {
+  const userID = c.req.param("userID").toUpperCase();
+  const userIDPattern = /^([A-Za-z]{3}|[A-Za-z]{2}[1-9])$/;
+
+  if (!userIDPattern.test(userID)) {
+    return c.json({ error: 'Invalid userID format' }, 400);
+  };
+
   try {
     const prefix = getPrefix();
     const suffix = getSuffix();
     const projectID = `${prefix}-${userID}-${suffix}`
-    return c.json({"project_id": projectID});
-  } catch (error) {
+    return c.json({"project_id": projectID}, 200);
+  }
+  catch (error) {
     return c.json({ error: 'Something went wrong', details: error.message }, 500)
   }
 });
 
-app.get("/prefix", async (c) => {
+app.get("/api/v1/prefix", async (c) => {
   try {
     const prefix = getPrefix();
-    return c.json({"prefix": prefix});
-  } catch (error) {
+    return c.json({"prefix": prefix}, 200);
+  }
+  catch (error) {
     return c.json({ error: 'Something went wrong', details: error.message }, 500)
   }
 });
 
-app.get("/suffix", async (c) => {
+app.get("/api/v1/suffix", async (c) => {
   try {
     const suffix = getSuffix();
-    return c.json({"suffix": suffix});
-  } catch (error) {
+    return c.json({"suffix": suffix}, 200);
+  }
+  catch (error) {
     return c.json({ error: 'Something went wrong', details: error.message }, 500)
   }
 });
