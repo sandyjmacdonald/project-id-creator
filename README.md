@@ -35,31 +35,31 @@ The base URL for all of the endpoints is `/api/v1/` and all (of the current rout
 
 Valid API responses will have a `200` response code.
 
-## Prefixes
+## `/api/v1/prefix`
 
 To generate a prefix:
 
-```
+```bash
 curl -s https://project-id-creator.sandyjmacdonald.workers.dev/api/v1/prefix
 
 {"prefix":"P2024"}
 ```
 
-## Suffixes
+## `/api/v1/suffix`
 
 To generate a suffix:
 
-```
+```bash
 curl -s https://project-id-creator.sandyjmacdonald.workers.dev/api/v1/suffix
 
 {"suffix":"ADQX"}
 ```
 
-## Project ID
+## `/api/v1/project-id/`
 
 To generate a project ID, use the `/api/v1/project-id/` route and append a valid three-character user ID:
 
-```
+```bash
 curl -s https://project-id-creator.sandyjmacdonald.workers.dev/api/v1/project-id/CRD
 
 {"project_id":"P2024-CRD-VTZB"}
