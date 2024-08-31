@@ -25,7 +25,13 @@ To deploy your own version to Cloudflare Workers:
 
 ![Web UI screenshot](web-ui.png)
 
-To use the web UI, simply enter a valid three-character user ID into the form field and a PYYYY prefix and random four-letter suffix will be generated. The user ID form field will turn green for a valid user ID or red for an invalid one. The paste button on the far right copies the generated project ID to your clipboard if the project ID is valid.
+To use the web UI, simply enter a valid three-character user ID into the form field and a PYYYY prefix and random four-letter suffix will be generated. 
+
+The user ID form field will turn green for a valid user ID or red for an invalid one.
+
+To copy the generated project ID to your clipboard (if the project ID is valid), click the paste button on the far right.
+
+The regenerate button to the right of the suffix regenerates the suffix.
 
 ## API endpoints
 
