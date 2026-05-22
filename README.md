@@ -1,3 +1,12 @@
+> [!IMPORTANT]
+> **This repository has moved to Codeberg.**
+>
+> Active development now happens at **[https://codeberg.org/sandyjmacdonald/project-id-creator](https://codeberg.org/sandyjmacdonald/project-id-creator)**.
+>
+> This GitHub copy is archived and read-only. Please file issues, open pull requests, and follow the project on Codeberg.
+
+---
+
 This simple web app generates project IDs that fit our University of York Bioscience TF Data Science Hub project ID schema, e.g. P2024-CRD-WXYZ for a 2024 project for someone with the initials CRD. The four-character alphabetical suffix is randomly generated to hopefully make each project ID unique.
 
 Both a web UI and API endpoints are available.
